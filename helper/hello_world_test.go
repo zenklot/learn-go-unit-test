@@ -21,6 +21,20 @@ func BenchmarkHelloWorldZez(b *testing.B) {
 	}
 }
 
+func BenchmarkSubHelloWorld(b *testing.B) {
+	b.Run("satu", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Gozenx")
+		}
+	})
+
+	b.Run("Dua", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("SUPRIATNA")
+		}
+	})
+}
+
 func TestHelloWorld(t *testing.T) {
 	result := HelloWorld("Goz")
 
