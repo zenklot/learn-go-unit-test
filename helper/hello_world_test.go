@@ -79,3 +79,16 @@ func TestMain(m *testing.M) {
 
 	fmt.Println("Setelah Tes")
 }
+
+func TestSubTest(t *testing.T) {
+	t.Run("zez", func(t *testing.T) {
+		result := HelloWorld("zez")
+		require.Equal(t, "Hallo zez", result)
+	})
+
+	t.Run("Raisa", func(t *testing.T) {
+		result := HelloWorld("raisa")
+		require.Equal(t, "Hallo raisa", result)
+	})
+
+}
