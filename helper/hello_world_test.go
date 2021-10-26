@@ -92,3 +92,33 @@ func TestSubTest(t *testing.T) {
 	})
 
 }
+
+func TestHelloWorldTable(t *testing.T) {
+	tests := []struct {
+		name, request, expected string
+	}{
+		{
+			name:     "Hallo(Goz)",
+			request:  "Goz",
+			expected: "Hallo Goz",
+		},
+		{
+			name:     "Hallo(Zez)",
+			request:  "Zez",
+			expected: "Hallo Zez",
+		},
+		{
+			name:     "Hallo(Raisa)",
+			request:  "Raisa",
+			expected: "Hallo Raisa",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			assert.Equal(t, test.expected, result)
+		})
+	}
+
+}
