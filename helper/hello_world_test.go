@@ -35,6 +35,34 @@ func BenchmarkSubHelloWorld(b *testing.B) {
 	})
 }
 
+func BenchmarkTable(b *testing.B) {
+	benchs := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Raisa",
+			request: "Raisa",
+		},
+		{
+			name:    "Zenklot",
+			request: "Zenklot",
+		},
+		{
+			name:    "Supriatna",
+			request: "Supriatna",
+		},
+	}
+
+	for _, bench := range benchs {
+		b.Run(bench.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(bench.request)
+			}
+		})
+	}
+
+}
 func TestHelloWorld(t *testing.T) {
 	result := HelloWorld("Goz")
 
